@@ -14,7 +14,6 @@ export const getUserInfo = (token) => (dispatch) => {
       .then((response) => {
         const {data} = response
         if (data.status === 0) {
-          console.log(data)
           const userInfo = data.userInfo
           dispatch(setUserInfo(userInfo))
           resolve(data)

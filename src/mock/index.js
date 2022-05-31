@@ -1,5 +1,8 @@
 import Mock from "mockjs";
 import loginAPI from "./login";
+import remoteSearchAPI from "./remoteSearch";
+import excelAPI from "./excel"
+import tableAPI from "./table"
 
 
 // 登录与用户相关
@@ -12,6 +15,15 @@ Mock.mock(/\/user\/edit/, "post", loginAPI.editUser);
 Mock.mock(/\/user\/validatUserID/, "post", loginAPI.ValidatUserID);
 Mock.mock(/\/user\/add/, "post", loginAPI.addUser);
 
+// dashboard
+Mock.mock(/\/transaction\/list/, "get", remoteSearchAPI.transactionList)
+
+// excel
+Mock.mock(/\/excel\/list/, "get", excelAPI.excelList)
+
+Mock.mock(/\/table\/list/, "post", tableAPI.tableList)
+Mock.mock(/\/table\/delete/, "post", tableAPI.deleteItem)
+Mock.mock(/\/table\/edit/, "post", tableAPI.editItem)
 
 
 export default Mock;

@@ -3,6 +3,7 @@ import {Form, Input, Button, message, Spin} from "antd";
 import {connect} from "react-redux";
 import DocumentTitle from "react-document-title"
 import {login, getUserInfo} from "../../store/actions";
+import {Navigate, useNavigate} from "react-router-dom";
 import {
   UserOutlined,
   LockOutlined
@@ -14,13 +15,13 @@ const Login = (props) => {
   const {token, login, getUserInfo} = props
   const [loading, setLoading] = useState(false)
   const [form] = Form.useForm()
+  const navigate = useNavigate()
 
   const handleLogin = (username, password) => {
     setLoading(true)
     login(username, password)
       .then((data) => {
         message.success('登录成功')
-        handleUserInfo(data.token)
       })
       .catch((error) => {
         setLoading(false)
@@ -28,14 +29,15 @@ const Login = (props) => {
       })
   }
 
-  const handleUserInfo = (token) => {
-    getUserInfo(token)
-      .then((data) => {
-      })
-      .catch((error) => {
-        message.error(error)
-      })
-  }
+  // const handleUserInfo = (token) => {
+  //   getUserInfo(token)
+  //     .then((data) => {
+  //       navigate("/dashboard")
+  //     })
+  //     .catch((error) => {
+  //       message.error(error)
+  //     })
+  // }
 
   const handleSubmit = () => {
     //对所有表单字段进行检验
@@ -50,9 +52,13 @@ const Login = (props) => {
   }
 
   //如果登录的有用户，就无法进入login界面
-  // if (token) {
-  //   return <Navigate to="/dashboard"/>
-  // }
+  if (token) {
+    getUserInfo(token)
+      .then(()=>{
+        navigate("/dashboard")
+      })
+      .catch((err) => {console.log(err)})
+  }
 
   return (
     <DocumentTitle title='用户登录'>
@@ -65,14 +71,14 @@ const Login = (props) => {
             <Form.Item
               name='username'
               rules={
-              [
-                {
-                  required: true,
-                  whitespace: true,
-                  message: '请输入用户名',
-                }
-              ]
-            }>
+                [
+                  {
+                    required: true,
+                    whitespace: true,
+                    message: '请输入用户名',
+                  }
+                ]
+              }>
               <Input
                 prefix={
                   <UserOutlined style={{color: 'rgba(0,0,0,.25)'}}/>

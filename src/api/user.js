@@ -63,7 +63,21 @@ export function reqValidatUserID(data) {
 
 export function addUser(data) {
   return request({
-    url: 'user/add',
+    url: '/user/add',
+    method: 'post',
+    data
+  })
+}
+
+/**
+ * 删除用户
+ * @param data
+ * @returns {AxiosPromise}
+ */
+
+export function deleteUser(data) {
+  return request({
+    url: '/user/delete',
     method: 'post',
     data
   })
