@@ -2,7 +2,6 @@ import React, {useEffect, useRef, useState} from 'react';
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import echarts from "../../../lib/echarts"
-import {debounce} from "../../../utils"
 import {useDebounce} from "../../../hooks";
 
 const LineChart = (props) => {
@@ -25,7 +24,7 @@ const LineChart = (props) => {
       },
       grid: {
         left: 10,
-        right: 10,
+        right: 20,
         bottom: 10,
         top: 30,
         containLabel: true,
@@ -49,10 +48,10 @@ const LineChart = (props) => {
         {
           name: "expected",
           itemStyle: {
-            color: "#FF005A",
+            color: "#fd7e14",
           },
           lineStyle: {
-            color: "#FF005A",
+            color: "#fd7e14",
             width: 2,
           },
           smooth: true,
@@ -66,12 +65,12 @@ const LineChart = (props) => {
           smooth: true,
           type: "line",
           itemStyle: {
-            color: "#3888fa",
+            color: "#33605a",
             areaStyle: {
               color: "#f3f8ff",
             },
             lineStyle: {
-              color: "#3888fa",
+              color: "#33605a",
               width: 2,
             },
           },

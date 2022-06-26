@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {useCallbackState, useComponentWillMount} from "../../hooks";
+import {useCallbackState} from "../../hooks";
 import {
   Tag,
   Table,
@@ -88,7 +88,7 @@ const TableComponent = () => {
     })
   }
 
-  const changePage = (pageNumber, pageSize) => {
+  const changePage = (pageNumber) => {
     setListQuery({...listQuery, pageNumber}, () => {
       fetchData()
     })

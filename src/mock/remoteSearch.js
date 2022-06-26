@@ -8,7 +8,7 @@ for (let i = 0; i < count; i++) {
     key: "@increment",
     order_no: "@NAME",
     price: '@float(1000, 15000, 0, 2)',
-    "tag|1": ['success', 'pending']
+    "tag|1": ['已支付', '未支付']
   }))
 }
 

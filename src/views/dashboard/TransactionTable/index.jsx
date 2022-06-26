@@ -4,25 +4,25 @@ import {transactionList} from "../../../api/remoteSearch"
 
 const columns = [
   {
-    title: "Name",
+    title: "姓名",
     dataIndex: 'order_no',
     key: 'order_no',
     width: 200.
   },
   {
-    title: "Consumption",
+    title: "工资",
     dataIndex: "price",
     key: "price",
     width: 195,
-    render: text => (`$${text}`),
+    render: text => (`￥${text}`),
   },
   {
-    title: "Status",
+    title: "状态",
     key: "tag",
     dataIndex: "tag",
     width: 100,
     render: (tag) => (
-      <Tag color={tag === "pending" ? "magenta" : "green"} key={tag}>
+      <Tag color={tag === "未支付" ? "magenta" : "green"} key={tag}>
         {tag}
       </Tag>
     ),
@@ -39,7 +39,6 @@ const TransactionTable = () => {
     transactionList().then((response) => {
       const list = response.data.data.item.slice(0, 13)
       if (_isMounted) {
-        console.log(list)
         setList(list)
       }
     })
