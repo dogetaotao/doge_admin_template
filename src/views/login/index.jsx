@@ -75,7 +75,7 @@ const Login = (props) => {
                   {
                     required: true,
                     whitespace: true,
-                    message: '请输入用户名',
+                    message: '请输入用户名(admin, editor, guest)',
                   }
                 ]
               }>
