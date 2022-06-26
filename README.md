@@ -1,3 +1,9 @@
+# 一个基于react的后台管理系统模板
+### 你可以点击 [https://doge-admin-template.netlify.app](https://doge-admin-template.netlify.app)进行体验
+    用户名请输入：admin、guest或者editor，
+    密码可以随便输入
+
+#### ————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

@@ -3,7 +3,7 @@ import {connect} from "react-redux";
 import {useLocation, useNavigate} from "react-router-dom";
 import {Scrollbars} from "react-custom-scrollbars"
 import {Tag} from "antd";
-import useClickListener from "../../../../hooks/useClickListener"
+import {useClickListener} from "../../../../hooks"
 import {deleteTags, emptyTagList, closeOtherTags} from "../../../../store/actions"
 import store from "../../../../store";
 
