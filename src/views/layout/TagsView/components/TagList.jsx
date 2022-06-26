@@ -38,7 +38,7 @@ const TagList = (props) => {
     }
     // 如果关闭的是最后的tag ,且当前显示的也是最后的tag对应的页面，才做路由跳转
     if (path === tagList[length - 1].path &&
-      currentPath === tagList[length - 1].push
+      currentPath === tagList[length - 1].path
     ) {
       if (length - 2 > 0) {
         navigate(tagList[length - 2].path)
@@ -50,10 +50,9 @@ const TagList = (props) => {
 
   }
   const handleClick = (path) => {
-
-
     navigate(path)
   }
+
   const openContextMenu = (tag, event) => {
 
     event.preventDefault()
@@ -63,7 +62,6 @@ const TagList = (props) => {
     const clientWidth = tagListContainer.current.clientWidth
     const maxLeft = clientWidth - menuMinWidth
     if (clickX > maxLeft) {
-
       setLeft(clickX - menuMinWidth + 15)
     } else {
       setLeft(clickX)
@@ -79,7 +77,6 @@ const TagList = (props) => {
 
   //点击其他地方关闭选项卡
   const handleClickOutSide = (event) => {
-
     const isOutSide = !(
       contextMenuContainer.current &&
       contextMenuContainer.current.contains(event.target)

@@ -2,9 +2,9 @@ import {useLayoutEffect} from "react";
 
 function useClickListener(func) {
   useLayoutEffect(() => {
-    document.addEventListener("click", func)
+    document.body.addEventListener("click", func)
     return () => {
-      document.removeEventListener("click", func)
+      document.body.removeEventListener("click", func)
     }
   },[])
 }
