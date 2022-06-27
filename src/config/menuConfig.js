@@ -9,7 +9,8 @@ import {
   TableOutlined,
   FileZipOutlined,
   IssuesCloseOutlined,
-  ClusterOutlined, UserOutlined,
+  ClusterOutlined,
+  UserOutlined,
 } from "@ant-design/icons"
 import React from "react";
 
